@@ -35,7 +35,7 @@ Any other character is ignored, so you can use whitespace and comments wherever.
 
 ### Notes on the new commands
 
-- `^` inserts at the pointer, so the cell the pointer was on (and the following cells) shift right by n. The pointer ends up on the new cell.
+- `^` inserts at the pointer, so the cell the pointer was on (and the following cells) shift right by n. The pointer stays at the same index.
 - `=` inserts the copy at index + 1 and doesn't move the pointer.
 - `?` doesn't move the pointer either. The result is inserted at index + 2, so `?XX` leaves just the result in place of the two compared cells.
 - After `X`, if the pointer is now past the end of the ring, it wraps to cell 0.
