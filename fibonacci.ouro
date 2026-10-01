@@ -1,0 +1,23 @@
+^6
+>+10>+>+
+
+[
+decimal output (plus 48 for ascii)
+[+5[>+8<-]>.<+6[>-8<-]+<3]>..
+
+>2
+
+add the two previous values
+repeated carry with rollover
+[Z<[>+<-]>2[<2+>+>-]<[>+<-[>+<-[>+<-[>+<-[>+<-[>+<-[>+<-[>+<-[>+<-[>Z>+>+<3-[>+<-]]]]]]]]]]]+>3]
+
+grow the ring only when it needs another cell
+check four three two one cells ahead
+>4[<4^>4]<4
+>3[<3^>3]<3
+>2[<2^>2]<2
+>[<^>]
+
+return
+<<3
+]
