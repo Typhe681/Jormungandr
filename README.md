@@ -48,3 +48,4 @@ Any other character is ignored, so you can use whitespace and comments wherever.
 ## Why "Jormungandr"?
 
 Because the memory bites its own tail, just like Jörmungandr :3
+Also Ouroboros is already taken >:(
