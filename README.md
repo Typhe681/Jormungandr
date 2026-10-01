@@ -2,12 +2,13 @@
 
 **Jormungandr (Jorm)** is an esoteric programming language based on Brainfuck, but memory is a resizable, cyclic tape.
 
+The main premise of Jorm is that memory is not a fixed linear structure. Commands like <code>^</code>, <code>X</code>, <code>=</code>, and <code>?</code> each modify the ring's length in some way. These operations do not move the pointer, but instead shift cells around it.
+
+The ring starts with one cell. Moving the pointer past either end wraps to the other. Incrementing a cell past 255 wraps to 0, and decrementing a cell past 0 wraps to 255 (modulo 256).
+
+Most commands are inherited from Brainfuck (<code>&gt;&lt;+-.,[]</code>), but there are a few that are unique to Jormungandr. Many commands also support numerical suffixes that act as repeat modifiers.
+
 You can try it out here: https://typhe.dev/jormungandr
-
-
-## Overview
-
-Memory is a ring that begins with one cell. Moving the pointer past either end wraps to the other. Incrementing a cell past 255 wraps to 0, and decrementing a cell past 0 wraps to 255 (modulo 256).
 
 ## Commands
 
