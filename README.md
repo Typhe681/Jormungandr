@@ -49,7 +49,7 @@ Any other character is ignored, so you can use whitespace and comments wherever.
 
 - The tape is a ring instead of a line so moving never hits an end, and cells can be inserted or deleted anywhere in it.
 - Number modifiers let you do `+72` instead of 72 plus signs lmao.
-- Four extra ways to reshape memory (`^`, `X`, `=`, `?`) and a quick clear (`Z`).
+- Four ways to reshape memory (`^`, `X`, `=`, `?`) and a quick clear (`Z`).
 
 ## Why "Ouroboros"?
 
