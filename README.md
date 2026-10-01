@@ -2,7 +2,7 @@
 
 Ouroboros is an esoteric programming language based on Brainfuck. It keeps Brainfuck's core (pointer, byte cells, bracket loops, and the original commands) but the memory becomes a *ring of cells that can grow and shrink while the program runs.*
 
-You can try it out at https://typhe.dev/ouroboros
+You can try it out here: https://typhe.dev/ouroboros
 
 ## Memory
 
@@ -31,7 +31,7 @@ Many commands can use an optional number suffix `n` right after it (`+5`, `>3`, 
 | `=` / `=n` | Insert 1 / n copies of the current cell right after it |
 | `?` | Compare the current cell to the next one and insert the result (1 if equal, 0 if not) two cells to the right |
 
-Any other character is ignored, so you can use whitespace and comments wherever. Digits only count as a suffix when they follow a command.
+Any other character is ignored, so you can use whitespace and comments wherever. Digits only count as a modifier when they follow a command.
 
 ### Notes on the new commands
 
