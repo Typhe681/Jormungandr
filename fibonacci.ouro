@@ -1,4 +1,6 @@
-^6
+based on https://github.com/medAzizLHB/BrainFuck/blob/main/Fibonacci%20generator%20v2.BF
+
+^5
 >+10>+>+
 
 [
