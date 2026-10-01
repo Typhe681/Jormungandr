@@ -1,0 +1,33 @@
+bits: flag count state
+
+setup (swap spaces for a plus if you want a solid cell)
+^269>32
++>+>2 >+>2 >+>2 >+>2 >+>2 >+>2 >+>2 >+>8
++>+>2 >+>2 >+>2 >+>2 >+>2 >+>2 >+>2 >+>8
++>+>2 >+>2 >+>2 >+>2 >+>2 >+>2 >+>2 >+>8
++>+>2 >+>2 >+>2 >+>2 >+>2 >+>2 >+>2 >+>8
++>+>2 >+>2 >+>2 >+>2 >+>2 >+>2 >+>2 >+>8
++>+>2 >+>2 >+>2 >+>2 >+>2 >+>2 >+>2 >+>8
++>+>2 >+>2 >+>2 >+>2 >+>2 >+>2 >+>2 >+>8
++>+>2 >+>2 >+>2 >+>2 >+>2 >+>2 >+>2 >+>38
+
+[
+read loop:
+[>              sentinel
+[>2^+?X>        check if state one
+=>^?XX          invert for if else
+[+31.Z]X<       if state zero do ts
+[+34.Z<35+>3+>3+>24+>7+>24+>3+>3+<32
+]X              increment neighbors
+]>3+10.Z>2      newline
+]>30            go to first sentinel
+
+update loop:
+[>              sentinel
+[>=-3>^+<       if count three birth
+[+              if count two stay
+[>3Z<3Z         else die
+]>Z<            if count two stay
+]X[->2+<2]XZ>2  if count three birth
+]>5]>30         go to first sentinel
+]
