@@ -1,8 +1,8 @@
-# Ouroboros
+# Jormungandr
 
-Ouroboros is an esoteric programming language based on Brainfuck. It keeps Brainfuck's core (pointer, byte cells, bracket loops, and the original commands) but the memory becomes a *ring of cells that can grow and shrink while the program runs.*
+Jormungandr is an esoteric programming language based on Brainfuck. It keeps Brainfuck's core (pointer, byte cells, bracket loops, and the original commands) but the memory becomes a *ring of cells that can grow and shrink while the program runs.*
 
-You can try it out here: https://typhe.dev/ouroboros
+You can try it out here: https://typhe.dev/jormungandr
 
 ## Memory
 
@@ -45,6 +45,6 @@ Any other character is ignored, so you can use whitespace and comments wherever.
 - You can't use `X` on a ring with only one cell.
 - You can't use `?` on a ring with only one cell (tf are you comparing to?).
 
-## Why "Ouroboros"?
+## Why "Jormungandr"?
 
-Because the memory eats its own tail :3
+Because the memory bites its own tail :3
