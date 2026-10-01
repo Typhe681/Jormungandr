@@ -45,12 +45,6 @@ Any other character is ignored, so you can use whitespace and comments wherever.
 - You can't use `X` on a ring with only one cell.
 - You can't use `?` on a ring with only one cell (tf are you comparing to?).
 
-## Differences from Brainfuck
-
-- The tape is a ring instead of a line so moving never hits an end, and cells can be inserted or deleted anywhere in it.
-- Number modifiers let you do `+72` instead of 72 plus signs lmao.
-- Four ways to reshape memory (`^`, `X`, `=`, `?`) and a quick clear (`Z`).
-
 ## Why "Ouroboros"?
 
 Because the memory eats its own tail :3
