@@ -2,9 +2,9 @@
 
 **Jormungandr (Jorm)** is an esoteric programming language based on Brainfuck, but memory is a resizable, cyclic tape.
 
-The main premise of Jorm is that memory is not a fixed linear structure. Commands like <code>^</code>, <code>X</code>, <code>=</code>, and <code>?</code> each modify the ring's length in some way. These operations do not move the pointer, but instead shift cells around it.
+The main premise of Jorm is that memory is not a fixed linear structure. Commands like <code>^</code>, <code>X</code>, <code>=</code>, and <code>?</code> modify the tape by inserting or deleting cells.
 
-The ring starts with one cell. Moving the pointer past either end wraps to the other. Incrementing a cell past 255 wraps to 0, and decrementing a cell past 0 wraps to 255 (modulo 256).
+Moving the pointer in either direction eventually returns it to the same cells, forming a continuous ring. The ring starts with one cell. Incrementing a cell past 255 wraps to 0, and decrementing a cell past 0 wraps to 255 (modulo 256).
 
 Most commands are inherited from Brainfuck (<code>&gt;&lt;+-.,[]</code>), but there are a few that are unique to Jormungandr. Many commands also support numerical suffixes that act as repeat modifiers.
 
@@ -18,38 +18,38 @@ You can try it out here: https://typhe.dev/jormungandr
 | `>n` | Move the pointer to the right by n cells |
 | `<` | Move the pointer to the left |
 | `<n` | Move the pointer to the left by n cells |
-| `+` | Increment the memory cell at the pointer |
-| `+n` | Increment the memory cell at the pointer n times |
-| `-` | Decrement the memory cell at the pointer |
-| `-n` | Decrement the memory cell at the pointer n times |
+| `+` | Increment the cell at the pointer |
+| `+n` | Increment the cell at the pointer n times |
+| `-` | Decrement the cell at the pointer |
+| `-n` | Decrement the cell at the pointer n times |
 | `.` | Output the character signified by the cell at the pointer |
 | `,` | Input a character and store it in the cell at the pointer |
 | `[` | Jump past the matching `]` if the cell at the pointer is 0 |
 | `]` | Jump back to the matching `[` if the cell at the pointer is nonzero |
-| `^` | Insert a new memory cell at the pointer |
-| `^n` | Insert a new memory cell at the pointer n times |
-| `=` | Duplicate the memory cell at the pointer |
-| `=n` | Duplicate the memory cell at the pointer n times |
-| `X` | Delete the memory cell at the pointer |
-| `Xn` | Delete the memory cell at the pointer n times |
-| `Z` | Set the memory cell at the pointer to 0 |
-| `?` | Compare the cell at the pointer to the following cell and insert the result after both: 1 if they match, 0 if they do not. |
+| `^` | Insert a new cell, initially containing 0, between the cell at the pointer and the previous cell, then move the pointer to that new cell |
+| `^n` | Insert n new cells, initially containing 0, between the cell at the pointer and the previous cell, then move the pointer to the first new cell |
+| `=` | Insert a new cell, containing the same value as the cell at the pointer, between the cell at the pointer and the previous cell, then move the pointer to that new cell |
+| `=n` | Insert n new cells, each containing the same value as the cell at the pointer, between the cell at the pointer and the previous cell, then move the pointer to the first new cell |
+| `X` | Delete the cell at the pointer, then move the pointer to the cell to the right of the deleted cell |
+| `Xn` | Delete n cells starting at the pointer, then move the pointer to the cell to the right of the deleted cells |
+| `Z` | Set the cell at the pointer to 0 |
+| `?` | Compare the cell at the pointer to the following cell and insert the result between the cell at the pointer and the previous cell, then move the pointer to the new cell. The result is 1 if they match and 0 if they do not |
 
-Using `X`, `Xn`, or `?` on a ring with only one cell is an error.
+Commands do not move the pointer around the ring unless explicitly stated.
 
-Insertions, deletions, duplications, and comparisons do not move the pointer.
+Here is an example of various commands:
 
-Insertions, comparisons, and duplications shift the cells at and to the right of the insertion point to the right. Deletions shift the cells to the right of the deletion point to the left.
+`
+ring:  [6, 8, 1, 7]       pointer at 8
+^  ->  [6, 0, 8, 1, 7]     pointer at 0
++3 ->  [6, 3, 8, 1, 7]      pointer at 3
+?  ->  [6, 0, 3, 8, 1, 7]    pointer at 0
+X  ->  [6, 3, 8, 1, 7]        pointer at 3
+=2 ->  [6, 3, 3, 3, 8, 1, 7]   pointer at the first 3
+<4 ->  [6, 3, 3, 3, 8, 1, 7]    pointer at 8
+`
 
-`ring:  [6, 8, 1, 7]      pointer at index 1 (the 8)
-^  ->  [6, 0, 8, 1, 7]     pointer still at index 1, which is now 0
-?  ->  [6, 0, 8, 0, 1, 7]    pointer still at index 1
-X  ->  [6, 8, 0, 1, 7]         pointer still at index 1, which is 8 again
-=2 ->  [6, 8, 8, 8, 0, 1, 7]     pointer still at index 1`
-
-Commands also wrap at the edges, as if there were no edges at all.
-
-If running `X` at the highest index, the pointer wraps to cell 0.
+Using `X`, `Xn`, or `?` on a ring with only one cell is an error. Unmatched `[` and `]` commands are also errors.
 
 ## Trivia
 - Jormungandr was originally named [Ouroboros](https://esolangs.org/wiki/Ouroboros), but that name is taken, so it was renamed to the Norse equivalent.
