@@ -39,7 +39,7 @@ Commands do not move the pointer around the ring unless explicitly stated.
 
 Here is an example of various commands:
 
-`
+```
 ring:  [6, 8, 1, 7]       pointer at 8
 ^  ->  [6, 0, 8, 1, 7]     pointer at 0
 +3 ->  [6, 3, 8, 1, 7]      pointer at 3
@@ -47,7 +47,7 @@ ring:  [6, 8, 1, 7]       pointer at 8
 X  ->  [6, 3, 8, 1, 7]        pointer at 3
 =2 ->  [6, 3, 3, 3, 8, 1, 7]   pointer at the first 3
 <4 ->  [6, 3, 3, 3, 8, 1, 7]    pointer at 8
-`
+```
 
 Using `X`, `Xn`, or `?` on a ring with only one cell is an error. Unmatched `[` and `]` commands are also errors.
 
