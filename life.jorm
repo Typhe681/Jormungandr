@@ -1,7 +1,8 @@
 bits: flag count state
 
 setup (swap spaces for a plus if you want a solid cell)
-^269>32
+eight by eight grid but can be expanded infinitely assuming you insert enough cells
+^269>32 insert and go to first sentinel
 +>+>2 >+>2 >+>2 >+>2 >+>2 >+>2 >+>2 >+>8
 +>+>2 >+>2 >+>2 >+>2 >+>2 >+>2 >+>2 >+>8
 +>+>2 >+>2 >+>2 >+>2 >+>2 >+>2 >+>2 >+>8
